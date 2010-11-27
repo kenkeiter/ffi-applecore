@@ -11,6 +11,14 @@ as well as the Apple System Logger (ASL).
 * Properly register launchd daemons and services.
 * Works in jRuby and MRI. Requires ffi.
 
+== INSTALLATION:
+
+  gem install ffi
+  git pull git://github.com/kenkeiter/ffi-applecore.git
+  cd ffi-applecore
+  gem build ffi-applecore.gemspec
+  gem install ffi-applecore-*.gem
+
 == SYNOPSIS:
 
   require 'ffi-applecore'
