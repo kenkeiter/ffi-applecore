@@ -16,8 +16,8 @@ as well as the Apple System Logger (ASL).
   gem install ffi
   git pull git://github.com/kenkeiter/ffi-applecore.git
   cd ffi-applecore
-  gem build ffi-applecore.gemspec
-  gem install ffi-applecore-*.gem
+  gem build applecore.gemspec
+  gem install applecore-*.gem
 
 == SYNOPSIS:
 

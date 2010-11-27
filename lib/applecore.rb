@@ -4,7 +4,7 @@ module Apple
   
   module CoreServices
     extend FFI::Library
-    ffi_lib 'applecore'
+    ffi_lib File.join(File.expand_path(File.dirname(__FILE__)), 'libapplecore.dylib')
 
     ASL_OPT_STDERR = 0x00000001
     ASL_OPT_NO_DELAY = 0x00000002
