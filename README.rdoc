@@ -21,7 +21,8 @@ as well as the Apple System Logger (ASL).
 
 == SYNOPSIS:
 
-  require 'ffi-applecore'
+  require 'rubygems'
+  require 'applecore'
 
 # Which gives you access to the Apple module:
 
