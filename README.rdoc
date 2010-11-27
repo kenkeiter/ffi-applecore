@@ -1,0 +1,44 @@
+= ffi-applecore
+
+== DESCRIPTION:
+
+Provides ffi access via a dylib to the launchd service registration calls, 
+as well as the Apple System Logger (ASL).
+
+== FEATURES/PROBLEMS:
+
+* Use the Apple System Logger in Ruby.
+* Properly register launchd daemons and services.
+* Works in jRuby and MRI. Requires ffi.
+
+== SYNOPSIS:
+
+  require 'ffi-applecore'
+
+# Which gives you access to the Apple module:
+
+  my_log = Apple::SystemLogger.new('TestApp', 'com.testapp', 'test.log')
+  my_log = Apple::SystemLogger.new('TestApp', 'com.testapp', STDERR)
+  my_log = Apple::SystemLogger.new('TestApp', 'com.testapp', my_preexisting_IO_object)
+  
+# And write to that log like so:
+
+  my_log.emergency "Oh god I bet that burns!"
+  my_log.alert "What happened to all the oxygen?!"
+  my_log.critical "At this point all you can hope for is a quick death."
+  my_log.error "Your heart appears to be stopping..."
+  my_log.warning "You may die... Just a thought."
+  my_log.info "You're dead."
+  my_log.debug "Can't debug. You're dead."
+  
+# Pushing messages to the log will assume they're debugs (just different syntax):
+
+  my_log << "Hmm.. Being dead might hinder your attempts at writing great Ruby."
+  
+# Check here for Apple's explanation of those log levels: http://goo.gl/YVuej
+# Also, to register a launch daemon with Launchd:
+
+  Apple::Launchd.instance.register
+  
+# Note that you won't be able to register multiple times -- the class tracks that.
+# Also, if you're not being started by launchd, that will segfault -- so good luck!
