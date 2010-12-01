@@ -61,7 +61,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					346,
+					358,
 					60,
 					20,
 					48,
@@ -78,17 +78,36 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 312712671;
-			PBXWorkspaceStateSaveDate = 312712671;
+			PBXPerProjectTemplateStateSaveDate = 312795870;
+			PBXWorkspaceStateSaveDate = 312795870;
 		};
 		perUserProjectItems = {
+			2234281012A4E3BB009CBEC8 /* XCBuildMessageTextBookmark */ = 2234281012A4E3BB009CBEC8 /* XCBuildMessageTextBookmark */;
+			2234285112A6DF5E009CBEC8 /* PBXTextBookmark */ = 2234285112A6DF5E009CBEC8 /* PBXTextBookmark */;
 			224DDF1612A2553F004D622B /* PBXTextBookmark */ = 224DDF1612A2553F004D622B /* PBXTextBookmark */;
-			224DDF1C12A255D1004D622B /* PBXTextBookmark */ = 224DDF1C12A255D1004D622B /* PBXTextBookmark */;
-			229C67CF12A4871A00108FF0 /* PBXTextBookmark */ = 229C67CF12A4871A00108FF0 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 224EA62E12A1A59B003D02C1 /* Source Control */;
 		userBuildSettings = {
 		};
+	};
+	2234281012A4E3BB009CBEC8 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Format not a string literal and no format arguments";
+		fRef = 224EA62B12A1A59B003D02C1 /* applecore.c */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 42;
+		rType = 1;
+	};
+	2234285112A6DF5E009CBEC8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 224EA62B12A1A59B003D02C1 /* applecore.c */;
+		name = "applecore.c: 36";
+		rLen = 0;
+		rLoc = 805;
+		rType = 0;
+		vrLen = 505;
+		vrLoc = 617;
 	};
 	224DDF1612A2553F004D622B /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -100,16 +119,6 @@
 		vrLen = 896;
 		vrLoc = 0;
 	};
-	224DDF1C12A255D1004D622B /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 224EA62B12A1A59B003D02C1 /* applecore.c */;
-		name = "applecore.c: 21";
-		rLen = 0;
-		rLoc = 392;
-		rType = 0;
-		vrLen = 840;
-		vrLoc = 0;
-	};
 	224EA62A12A1A59B003D02C1 /* applecore.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {711, 546}}";
@@ -119,9 +128,9 @@
 	};
 	224EA62B12A1A59B003D02C1 /* applecore.c */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {565, 1131}}";
-			sepNavSelRange = "{302, 18}";
-			sepNavVisRange = "{264, 669}";
+			sepNavIntBoundsRect = "{{0, 0}, {576, 1118}}";
+			sepNavSelRange = "{805, 0}";
+			sepNavVisRange = "{617, 505}";
 		};
 	};
 	224EA62E12A1A59B003D02C1 /* Source Control */ = {
@@ -137,16 +146,6 @@
 	224EA62F12A1A59B003D02C1 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
-	};
-	229C67CF12A4871A00108FF0 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 224EA62B12A1A59B003D02C1 /* applecore.c */;
-		name = "applecore.c: 20";
-		rLen = 18;
-		rLoc = 302;
-		rType = 0;
-		vrLen = 669;
-		vrLoc = 264;
 	};
 	D2AAC0620554660B00DB518D /* applecore */ = {
 		activeExec = 0;

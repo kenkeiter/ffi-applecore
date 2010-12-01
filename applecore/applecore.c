@@ -15,8 +15,6 @@
 
 #include "applecore.h"
 
-int kq; // kernel queue
-
 asl_context *asl_create_context(char *name, char *facility, uint32_t opts){
 	int retval = EXIT_SUCCESS;
 	asl_context *ctx = (asl_context *) malloc(sizeof(asl_context));
@@ -30,22 +28,20 @@ asl_context *asl_create_context(char *name, char *facility, uint32_t opts){
 };
 
 int asl_finalize_context(asl_context *ctx){
-	int retval = EXIT_SUCCESS;
-	if(ctx->client){ 
+	int retval = EXIT_FAILURE;
+	if(ctx->client && ctx->logmsg){
+		asl_free(ctx->logmsg);
 		asl_close(ctx->client);
-	}else{
-		retval = EXIT_FAILURE;
+		free(ctx);
 	}
-	free(ctx);
 	return retval;
 };
 
 int asl_log_event(asl_context *ctx, uint8_t sev, char *msg){
-	int retval = EXIT_SUCCESS;
+	int retval = EXIT_FAILURE;
 	if(ctx->client){
 		asl_log(ctx->client, ctx->logmsg, sev, msg);
-	}else{
-		retval = EXIT_FAILURE;
+		retval = EXIT_SUCCESS;
 	}
 	return retval;
 };

@@ -8,5 +8,5 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://kenkeiter.com/}
   s.description = %q{Access to launchd and Apple System Logger.}
   s.files = [ "README.rdoc", "Changelog", "LICENSE", "lib/applecore.rb", "lib/libapplecore.dylib"]
-  #s.test_file  = 'tests/test-suite.rb'
+  s.test_file  = 'test/unittest.rb'
 end

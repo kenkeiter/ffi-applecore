@@ -1,0 +1,15 @@
+task :test do
+  ruby 'test/unittest.rb'
+end
+
+task :install do
+  puts 'Building...'
+  `gem build applecore.gemspec`
+  puts 'Installing...'
+  `gem install applecore-*.gem`
+end
+
+task :clean do
+  puts 'Removing build.'
+  `rm applecore-*.gem`
+end
