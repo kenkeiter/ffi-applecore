@@ -83,6 +83,9 @@ module Apple
       unless sev.to_i >= 0 && sev.to_i <= 7
         raise RangeError, 'Severity must be between 0..7 (inclusive).'
       end
+      unless @context
+        raise RuntimeError, 'System log client closed already.'
+      end
       CoreServices::asl_log_event(@context, sev, msg)
     end
     
