@@ -24,7 +24,7 @@ module Apple
   
   module CoreServices
     extend FFI::Library
-    ffi_lib 'libapplecore.dylib'
+    ffi_lib File.join(File.expand_path(File.dirname(__FILE__)), 'libapplecore.dylib')
 
     attach_function :asl_create_context, [:string, :string], :pointer
     attach_function :asl_finalize_context, [:pointer], :int
