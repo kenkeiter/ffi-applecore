@@ -29,8 +29,8 @@ module Apple
     attach_function :asl_create_context, [:string, :string], :pointer
     attach_function :asl_finalize_context, [:pointer], :int
     attach_function :asl_log_event, [:pointer, :uchar, :string], :int
-    attach_function :asl_add_output_file, [:pointer, :int], :int
-    attach_function :asl_remove_output_file, [:pointer, :int], :int
+    attach_function :asl_add_output_file, [:pointer, :string], :int
+    attach_function :asl_close_output_file, [:pointer, :int], :int
 
     attach_function :launchd_register, [], :int # careful.. segfaults if not part of ld.
   end
@@ -50,17 +50,17 @@ module Apple
     end
     
     def register
-      unless @registered
-        if CoreServices::launchd_register() == 0
-          @registered = true
-        end
+      return false if @registered
+      if CoreServices::launchd_register() == 0
+        @registered = true
       end
     end
     
   end
   
   # The SystemLogger class acts as an abstraction of the CoreServices 
-  # module's Apple System Logger functionality. It provides levels
+  # module's Apple System Logger functionality. It provides different log 
+  # levels.
   
   class SystemLogger
     
@@ -69,11 +69,9 @@ module Apple
       @context = CoreServices::asl_create_context(app_name, facility)
       @dest = nil
       
-      unless dest.nil?
-        if dest.is_a? String
-          @dest = File.new(dest,  "w+")
-        end
-        CoreServices::asl_add_output_file(@context, @dest.to_i)
+      unless dest.nil? and dest.is_a? String
+        puts 'Info'
+        @dest = CoreServices::asl_add_output_file(@context, dest)
       end
       
     end
@@ -91,10 +89,7 @@ module Apple
     
     # Close the connection to the Apple System Log service.
     def close
-      if @dest
-        CoreServices::asl_remove_output_file(@context, @dest.to_i)
-        @dest.close() if @dest.is_a? File
-      end
+      CoreServices::asl_close_output_file(@context, @dest.to_i) if @dest
       CoreServices::asl_finalize_context(@context)
       @context = nil
     end

@@ -27,8 +27,7 @@ as well as the Apple System Logger (ASL).
 # Which gives you access to the Apple module:
 
   my_log = Apple::SystemLogger.new('TestApp', 'user', 'test.log')
-  my_log = Apple::SystemLogger.new('TestApp', 'user', STDERR)
-  my_log = Apple::SystemLogger.new('TestApp', 'user', my_preexisting_IO_object)
+  my_log = Apple::SystemLogger.new('TestApp', 'user')
   
 # And write to that log like so:
 

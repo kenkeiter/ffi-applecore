@@ -4,3 +4,7 @@
 12-01-2010
 * Fixed ASL close bug.
 * Updated unit tests.
+* Fixed log-to-file functionality by moving file handling code to dylib. 
+  jRuby (Java, specifically) uses its own internal file stream maps, so you 
+  can't pass a valid file descriptor from Ruby to an FFI lib.
+* API no longer supports passing in arbitrary IO objects for the above reason.

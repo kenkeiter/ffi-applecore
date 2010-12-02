@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <syslog.h>
+#include <fcntl.h>
 #include <asl.h>
 #include <launch.h>
 
@@ -46,12 +47,15 @@ int asl_log_event(asl_context *ctx, uint8_t sev, char *msg){
 	return retval;
 };
 
-int asl_add_output_file(asl_context *ctx, int fp){
-	return asl_add_log_file(ctx->client, fp);
+int asl_add_output_file(asl_context *ctx, char *file){
+	int fp = open(file, O_WRONLY | O_CREAT);
+	asl_add_log_file(ctx->client, fp);
+	return fp;
 };
 	   
-int asl_remove_output_file(asl_context *ctx, int fp){
-	return asl_remove_log_file(ctx->client, fp);
+int asl_close_output_file(asl_context *ctx, int fd){
+	asl_remove_log_file(ctx->client, fd);
+	return close(fd);
 };
 	   
 int launchd_register(){
